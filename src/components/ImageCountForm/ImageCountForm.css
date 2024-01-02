@@ -1,0 +1,27 @@
+.image-count-form {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.image-count-form__label {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.image-count-form__input {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.image-count-form__button {
+  padding: 5px 10px;
+  cursor: pointer;
+  color: rgb(54, 54, 54);
+  background-color: rgb(227, 227, 227);
+}
+
+.image-count-form__button:hover {
+  background-color: rgb(189, 189, 189);
+  transition: background-color 0.3s ease-in-out;
+}
