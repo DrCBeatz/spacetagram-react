@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
-// import backgroundImage from "./assets/space_image.jpg";
 import Card from "./components/Card/Card";
 import Header from "./components/Header/Header";
 import Loading from "./components/Loading/Loading";
