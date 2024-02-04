@@ -1,3 +1,5 @@
+# core/views.py
+
 from django.shortcuts import render
 
 def frontend(request):

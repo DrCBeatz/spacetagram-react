@@ -4,9 +4,10 @@ version: "3.9"
 
 services:
   web:
+    image: spacetagram-react:latest
     build: .
-    command: python /code/manage.py runserver 0.0.0.0:8000
+    command: gunicorn core.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - .:/code
     ports:
-      - 8000:8000
+      - "8000:8000"
