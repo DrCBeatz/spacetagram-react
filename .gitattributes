@@ -1,6 +1,6 @@
 *.ts linguist-detectable=true
 *.tsx linguist-detectable=true
-*.js linguist-detectable=true
+*.js linguist-detectable=false
 *.html linguist-detectable=true
 *.py linguist-detectable=false
-*.css linguist-detectable=true
+*.css linguist-detectable=false
