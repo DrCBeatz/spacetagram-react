@@ -12,9 +12,14 @@ ENV PYTHONBUFFERED 1
 WORKDIR /code
 
 # Install dependencies
-COPY ./requirements.txt .
-RUN pip install -r requirements.txt
+COPY ./requirements.txt /code/
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy project
-COPY . .
+COPY . /code/
 
+# Collect static files
+RUN python manage.py collectstatic --noinput
+
+# Start Gunicorn
+CMD ["gunicorn", "core.wsgi:application", "--bind", "0.0.0.0:8000"]
