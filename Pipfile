@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 django = "==4.2.9"
+awsebcli = "*"
 
 [dev-packages]
 

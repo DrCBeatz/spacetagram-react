@@ -1,25 +1,22 @@
-# Dockerfile
-
-# Pull base image
-FROM python:3.10.4-slim-bullseye
+# Use an official Python runtime as a parent image
+FROM python:3.9-slim-buster
 
 # Set environment variables
-ENV PIP_DISABLE_PIP_VERSION_CHECK 1
 ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONBUFFERED 1
+ENV PYTHONUNBUFFERED 1
 
-# Set work directory
-WORKDIR /code
+# Set the working directory in the container to /app
+WORKDIR /app
 
-# Install dependencies
-COPY ./requirements.txt /code/
-RUN pip install --no-cache-dir -r requirements.txt
+# Add the current directory files (on your machine) to the container
+ADD . /app/
 
-# Copy project
-COPY . /code/
+# Install any needed packages specified in requirements.txt
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
 
-# Collect static files
-RUN python manage.py collectstatic --noinput
+# Expose the port server is running on
+EXPOSE 8000
 
-# Start Gunicorn
+# Start the server
 CMD ["gunicorn", "core.wsgi:application", "--bind", "0.0.0.0:8000"]
